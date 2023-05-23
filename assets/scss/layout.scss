@@ -1,0 +1,198 @@
+@import "abstracts";
+
+// Layout specifics
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  background-color: #fff;
+  font-family: $text-font !important;
+  color: $clr-primary;
+}
+
+a {
+  color: $clr-accent-dark;
+}
+
+p {
+  margin: 1.1rem 0;
+}
+
+// Containers
+$container-max-width: 1440px;
+$container-mid-width: 1050px;
+$container-sml-width: 855px;
+
+#gatsby-focus-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  z-index: 1;
+  justify-content: space-between;
+}
+
+.sm-wrapper,
+.md-wrapper,
+.lg-wrapper {
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+  max-width: $container-sml-width;
+  overflow: hidden;
+
+  @include media($from: "md") {
+    padding: 0 40px;
+  }
+}
+
+.md-wrapper {
+  max-width: $container-mid-width;
+}
+
+.lg-wrapper {
+  max-width: $container-max-width;
+}
+
+// Section Titles
+.SectionTitle {
+  font-family: $heading-font;
+  font-size: 3.2rem;
+  line-height: 4.4rem;
+  text-align: center;
+
+  @include media($from: "sm") {
+    font-size: 4.8rem;
+    line-height: 5.7rem;
+    letter-spacing: -0.1rem;
+  }
+}
+
+.SectionSubTitle {
+  font-family: $heading-font;
+  font-size: 2.2rem;
+  line-height: 2.6rem;
+  font-weight: 700;
+  text-align: center;
+
+  @include media($from: "sm") {
+    font-size: 3.2rem;
+    line-height: 4.4rem;
+    letter-spacing: -0.1rem;
+  }
+}
+
+.SectionTextTitle {
+  font-size: 1.6rem ;
+  line-height: 1.3rem;
+}
+
+.CtaButton {
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #fff;
+  border-radius: 8px;
+  outline: none;
+  color: $clr-primary;
+  padding: 17px 25px;
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  letter-spacing: 0.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+
+  @include media($from: "sm") {
+    width: max-content;
+  }
+}
+
+// Popover box //
+.rs-popover.readmore {
+  border-radius: 32px;
+  box-shadow: 4px 12px 32px rgba(27, 27, 27, 0.3);
+  padding: 2rem 2.8rem;
+  z-index: 9 !important;
+
+  &.contextMore {
+    max-width: 570px;
+    margin-left: -115px;
+    
+    @include media($until: "lg") {
+      visibility: hidden;
+    }
+  }
+
+  &.infoPopover {
+    max-width: 640px;
+
+    @include media($until: "ipad") {
+      visibility: hidden;
+    }
+  }
+
+  &.apologiesMore, 
+  &.communalMore {
+    max-width: 100%;
+    margin-right: 15px;
+    
+    @include media($from: "sm") {
+      max-width: 46%;
+    }
+
+    @include media($from: "md") {
+      max-width: 44%;
+    }
+
+    @include media($from: "ipad") {
+      max-width: 455px;
+    }
+
+    @include media($until: "sm") {
+      left: 15px !important;
+    }
+  }
+
+  &.placement-left-start,
+  &.placement-bottom-end {
+    border-radius: 32px 0 32px 32px;
+  }
+
+  &.placement-left-end,
+  &.placement-top-end {
+    border-radius: 32px 32px 0 32px;
+  }
+
+  &.placement-bottom-start {
+    border-radius: 0 32px 32px 32px;
+  }
+
+  .rs-popover-arrow {
+    display: none;
+  }
+
+  .rs-popover-content {
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+    font-weight: 400;
+
+    p {
+      cursor: default;
+    }
+  }
+
+  .closePopoverBtn {
+    background: none;
+    outline: none;
+    border: none;
+    color: $clr-accent-dark;
+    text-decoration: underline;
+    padding: 0;
+    cursor: pointer;
+  }
+}
